@@ -48,7 +48,7 @@ describe 'odoo::web' do
     it 'downloads odoo' do
       expect(chef_run).to put_ark('odoo').with(
         path: '/opt',
-        url: 'https://nightly.odoo.com/10.0/nightly/src/odoo_10.0.latest.tar.gz',
+        url: 'https://nightly.odoo.com/11.0/nightly/src/odoo_11.0.latest.tar.gz',
         owner: 'odoo',
         group: 'odoo'
       )
