@@ -57,7 +57,7 @@ describe 'odoo::web' do
     it 'do not downloads odoo via git' do
       expect(chef_run).to_not sync_git('odoo').with(
         destination: '/opt/odoo',
-        revision: '10.0',
+        revision: '11.0',
         depth: 1
       )
     end
@@ -113,7 +113,7 @@ describe 'odoo::web' do
     it 'do not run ark resource' do
       expect(chef_run).to_not put_ark('odoo').with(
         path: '/opt',
-        url: 'https://nightly.odoo.com/10.0/nightly/src/odoo_10.0.latest.tar.gz',
+        url: 'https://nightly.odoo.com/11.0/nightly/src/odoo_11.0.latest.tar.gz',
         owner: 'odoo',
         group: 'odoo'
       )
@@ -123,7 +123,7 @@ describe 'odoo::web' do
       expect(chef_run).to sync_git('odoo').with(
         destination: '/opt/odoo',
         repository: 'https://github.com/odoo/odoo.git',
-        revision: '10.0',
+        revision: '11.0',
         depth: 1
       )
       expect(chef_run).to run_execute('chown -R odoo:odoo /opt/odoo')
