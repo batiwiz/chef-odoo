@@ -37,7 +37,7 @@ rq_txt = '/opt/odoo/requirements.txt'
 
 ark 'odoo' do
   path '/opt'
-  url 'https://nightly.odoo.com/10.0/nightly/src/odoo_10.0.latest.tar.gz'
+  url 'https://nightly.odoo.com/' + node['odoo']['version'] + '/nightly/src/odoo_' + node['odoo']['version'] + '.latest.tar.gz'
   action :put
   owner 'odoo'
   group 'odoo'
@@ -48,7 +48,7 @@ end
 git 'odoo' do
   destination '/opt/odoo'
   repository 'https://github.com/odoo/odoo.git'
-  revision '10.0'
+  revision node['odoo']['version']
   depth 1
   only_if { node['odoo']['install_method'] == 'git' }
 end
