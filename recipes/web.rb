@@ -108,7 +108,7 @@ After=network.target
 Type=simple
 User=odoo
 Group=odoo
-ExecStart=#{bin_file} --config #{conf_path}/#{conf_file_name} --logfile #{log_path}/odoo-server.log
+ExecStart=#{bin_file} -u batiwiz -d BATIWIZ --config #{conf_path}/#{conf_file_name} --logfile #{log_path}/odoo-server.log
 SYSTEMD
   mode 00644
 end
